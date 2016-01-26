@@ -1,10 +1,5 @@
 def convert_to_bgn(amount, currency)
-  exchange_rate = {
-    usd: 1.7408,
-    eur: 1.9557,
-    gbp: 2.6415,
-    bgn: 1.0000
-  }
+  exchange_rate = {usd: 1.7408, eur: 1.9557, gbp: 2.6415, bgn: 1.0000}
   (exchange_rate[currency] * amount).round(2)
 end
 
