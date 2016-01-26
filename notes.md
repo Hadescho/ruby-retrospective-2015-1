@@ -1,4 +1,8 @@
 #Notes for the first retrospective homework
 
-1. Don't use multiline hashes to improve readability, static code analysers
-don't like it ...
+1. Не знаех за съществуване на union operator ('|') за Array
+2. Разбрах че можем да използваме splat при "инициализация" на списъци
+```ruby
+  [*[1, 2, 3]] #=> [1, 2, 3]
+```
+
