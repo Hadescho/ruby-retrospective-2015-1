@@ -227,39 +227,30 @@ class BeloteHand
   end
 
   def tierce?
-    sort
-    ranks = @hand.first.custom_ranks
-    @hand.each_cons(3).any? do |consecutive_cards|
-      (consecutive_cards.map(&:suit).uniq.size == 1) and
-        consecutive_cards.each_cons(2).all? do |first, second|
-          ranks.find_index(first.rank) == ranks.find_index(second.rank) + 1
-        end
-    end
+    consecutive(3)
   end
 
   def quarte?
-    sort
-    ranks = @hand.first.custom_ranks
-    @hand.each_cons(4).any? do |consecutive_cards|
-      (consecutive_cards.map(&:suit).uniq.size == 1) and
-        consecutive_cards.each_cons(2).all? do |first, second|
-          ranks.find_index(first.rank) == ranks.find_index(second.rank) + 1
-        end
-    end
+    consecutive(4)
   end
 
   def quint?
+    consecutive(5)
+  end
+
+  private
+
+  def consecutive(count)
     sort
     ranks = @hand.first.custom_ranks
-    @hand.each_cons(5).any? do |consecutive_cards|
+    @hand.each_cons(count).any? do |consecutive_cards|
       (consecutive_cards.map(&:suit).uniq.size == 1) and
         consecutive_cards.each_cons(2).all? do |first, second|
           ranks.find_index(first.rank) == ranks.find_index(second.rank) + 1
         end
     end
-  end
 
-  private
+  end
 
   def cards_collection
     @hand
