@@ -24,7 +24,6 @@ class PrimeSequence
   def initialize(size)
     @sequence = []
     counter = 2
-    # This is such a heresy
     while @sequence.size < size
       @sequence << counter if PrimeSequence.prime?(counter)
       counter += 1
@@ -41,7 +40,7 @@ class PrimeSequence
 
   def self.prime?(number)
     return false if number <= 1
-    (2...number).none? { |divider| number % divider == 0 }
+    (2..(number**0.5)).none? { |divider| number % divider == 0 }
   end
 
   def make_size_even
@@ -70,6 +69,8 @@ class RationalSequence
   def each(&block)
     @sequence.each(&block)
   end
+
+  private
 
   def generate_sequence(size)
     sequence = [1.to_r]
