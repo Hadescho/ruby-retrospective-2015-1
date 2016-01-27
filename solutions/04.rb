@@ -208,12 +208,6 @@ class BeloteHand
     end
   end
 
-  # Would have loved to do it this way, but ... 3 levels of nesting ...
-  # {jacks?: :jack, nines?: 9, aces?: :ace}.each do |method_suffix, rank|
-  #   define_method "carre_of_#{method_suffix.to_s }" do
-  #     @hand.select { |card| card.rank == rank }.size == 4
-  #   end
-  # end
   def carre_of_jacks?
     carre_of?(:jack)
   end
