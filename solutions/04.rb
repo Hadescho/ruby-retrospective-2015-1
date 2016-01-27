@@ -215,15 +215,15 @@ class BeloteHand
   #   end
   # end
   def carre_of_jacks?
-    @hand.select{ |card| card.rank == :jack }.size == 4
+    carre_of?(:jack)
   end
 
   def carre_of_nines?
-    @hand.select{ |card| card.rank == 9}.size == 4
+    carre_of?(9)
   end
 
   def carre_of_aces?
-    @hand.select{ |card| card.rank == :ace}.size == 4
+    carre_of?(:ace)
   end
 
   def tierce?
@@ -239,6 +239,10 @@ class BeloteHand
   end
 
   private
+
+  def carre_of?(rank)
+    @hand.select{ |card| card.rank == rank}.size == 4
+  end
 
   def consecutive(count)
     sort
