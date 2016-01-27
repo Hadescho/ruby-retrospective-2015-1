@@ -3,7 +3,7 @@ def convert_to_bgn(amount, currency)
   (exchange_rate[currency] * amount).round(2)
 end
 
-def compare_prices(amount_a, currency_a, amount_b, currency_b)
-  convert_to_bgn(amount_a, currency_a) <=>
-    convert_to_bgn(amount_b, currency_b)
+def compare_prices(first_amount, first_currency, second_amount, second_currency)
+  convert_to_bgn(first_amount, first_currency) <=>
+    convert_to_bgn(second_amount, second_currency)
 end
